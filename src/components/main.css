@@ -1,0 +1,36 @@
+#container{
+    
+   
+}
+#covers{
+    width: 380px;
+    border-radius: 10px;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+#author{
+    border-radius: 40px;
+    margin-left: 100px;
+    margin-top: 30px;
+
+}
+#names{
+    font-size: 25px;
+    font-weight: bold;
+    width: 300px;
+    margin-left: 720px;
+}
+/* .song{
+    margin-left: 200px;
+    margin-top: 20px;
+
+} */
+.sss{
+    font-size: 20px;
+}
+#btn{
+    width: 100px;
+    font-size: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}

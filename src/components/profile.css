@@ -1,0 +1,73 @@
+#pro{
+    width: 25%;
+    float: left;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    margin: 100px;
+   
+}
+#title{
+    width: 150px;
+    font-size: 20px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+#artist{
+    width: 150px;
+    font-size: 20px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin-left: 40px;
+}
+#pass{
+    width: 150px;
+    font-size: 20px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin-left:4px;
+}
+#cover{
+    width: 200px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 0px;
+    font-size: 20px;
+}
+#pros{
+    width: 200px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin-left: 0px;
+    font-size: 20px;
+}
+.in{
+    font-size: 20px;
+    margin: 10px;
+}
+.sub{
+    margin-left: 30%;
+    font-size: 20px;
+}
+#bxx{
+    width: 27%;
+   
+    float: left;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    margin-top: 100px;
+}
+.same{
+    width: 200px;
+    font-size: 20px;
+    border: 2px solid green;
+    border-radius: 5px;
+}
+#ssss{
+    font-size: 20px;
+    margin-top: 100px;
+    margin-left: 50px;
+}

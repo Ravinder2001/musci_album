@@ -1,0 +1,98 @@
+#container{
+  margin-left: 150px;
+  margin-top: 20px;
+}
+.box{
+    width: 25%;
+    height: 370px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    float: left;
+    margin: 20px;
+    border-radius: 10px;
+    transition: 0.5s all ease-in-out;
+    cursor: pointer;
+    
+}
+.box:hover{
+    transform: scale(1.2)
+}
+.img{
+    width: 280px;
+    height: 200px;
+    margin:15px;
+    border-radius: 10px;
+}
+.arti{
+    width: 100px;
+    border-radius: 40px;
+    margin-left:15px ;
+}
+.title{
+    float: left;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 0px;
+    width: 50%;
+}
+.art{
+    float: left;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 0px;
+    width: 50%;
+}
+.song{
+    float: left;
+    font-size: 20px;
+    margin-left: 10px;
+    width: 50%;
+}
+.year{
+    float: left;
+    font-size: 20px;
+    margin-left: 10px;
+    color: red;
+    width: 50%;
+}
+.years{
+    float: left;
+    font-size: 20px;
+    margin-left: 10px;
+    color: blue;
+}
+#btn1{
+    margin-left: 47%;
+    font-size: 25px;
+    margin-top: 20px;
+}
+#btn2{
+    margin-left: 1%;
+    font-size: 25px;
+    margin-top: 20px;
+}
+#head{
+    text-align: center;
+}
+#input{
+    width: 180px;
+    height: 25px;
+    font-size: 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-left: 220px;
+}
+.so{
+    width: 180px;
+    margin-left: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+#language{
+    width: 200px;
+    margin-left: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+}
