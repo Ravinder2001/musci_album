@@ -2,14 +2,14 @@
   "album": [
     {
       "id": 1,
-      "title": "Shershaah",
-      "artist": "Jubin Nautiyal",
+      "title": "Satyameva Jayate 2",
+      "artist": "Ravinder Negi",
       "email": "jubin@gmail.com",
       "password": "12345",
-      "cover": "https://a10.gaanacdn.com/gn_img/albums/10q3Zj1352/q3ZR6q4035/size_l_1629048201.webp",
+      "cover": "https://a10.gaanacdn.com/gn_img/albums/R7vKX66Wmr/vKX67RxgWm/size_l_1637650771.webp",
       "genre": "Soul music",
       "year": "2021",
-      "img": "https://a10.gaanacdn.com/gn_img/artists/10q3ZR1352/0q3Z6Lg135/size_m_1638777310.webp"
+      "img": "https://a10.gaanacdn.com/gn_img/artists/10q3Zj1352/0q3Zw2ZQW5/size_m_1618501252.webp"
     },
     {
       "id": 2,
@@ -225,25 +225,25 @@
     {
       "id": 1,
       "artist": "Jubin Nautiyal",
-      "song1": "Raataan Lambiyan",
+      "song1": "fghf",
       "is1": "https://a10.gaanacdn.com/gn_img/song/lJvKa56KDV/vKa91Z1RKD/size_m_1628085090.webp",
-      "song2": "Taaron Ke Shehar",
+      "song2": "345435",
       "is2": "https://a10.gaanacdn.com/gn_img/albums/0wrb4kNWLg/wrb476lyWL/size_m.webp",
-      "song3": "Meri Zindagi Hai Tu",
+      "song3": "353543",
       "is3": "https://a10.gaanacdn.com/gn_img/song/jBr3gybR1m/r3gwPDpd3R/size_m_1635393821.webp",
-      "song4": "Lut Gayew",
+      "song4": "ffghfg",
       "is4": "https://a10.gaanacdn.com/gn_img/albums/a7LWBkzbzX/LWBkkJpRbz/size_m.webp"
     },
     {
       "id": 2,
       "artist": "Dev Negi",
-      "song1": "Kusu Kusu",
+      "song1": "drrrrrrrrrr",
       "is1": "https://a10.gaanacdn.com/gn_img/song/z8k3yd1Krx/k3yX6dxMKr/size_m_1636521846.webp",
       "song2": "Teri Bhabhi",
       "is2": "https://a10.gaanacdn.com/gn_img/song/g4w3vwrWjJ/w3veYRBPKj/size_m_1608035993.webp",
       "song3": "Deedar De",
       "is3": "https://a10.gaanacdn.com/gn_img/song/w4MKPObojg/MKPwVznjbo/size_m_1604990025.webp",
-      "song4": "Sweety Tera Dramag",
+      "song4": "ggggggggg",
       "is4": "https://a10.gaanacdn.com/gn_img/song/mGjKr1b6zX/jKrw5J7J36/size_m_1516002451.webp"
     }
   ]

@@ -8,21 +8,28 @@ function Main() {
 
 	useEffect(() => {
 		get();
+		alb();
 	}, []);
 	const get = async () => {
-		let res = await fetch("http://localhost:3004/songs");
+		let res = await fetch(`http://localhost:3004/songs/${album.id}`);
 		const data = await res.json();
 
-		await filt(data);
+		await setData(data);
 	};
+	const alb = async () => {
+		let res = await fetch(`http://localhost:3004/album/${album.id}`);
+		const data = await res.json();
 
-	function filt(el) {
-		const arr = el.filter((e) => {
-			return e.artist == album.artist;
-		});
+		await setSong(data);
+	};
+	console.log(songs);
+	// function filt(el) {
+	// 	const arr = el.filter((e) => {
+	// 		return e.artist == album.artist;
+	// 	});
 
-		setSong(arr);
-	}
+	// 	setSong(arr);
+	// }
 	function show() {
 		alert("You Have to login first");
 		window.location.href = "/edit";
@@ -31,10 +38,10 @@ function Main() {
 		<div>
 			<div id='con'>
 				<div style={{ float: "left" }}>
-					<img src={album.cover} alt='' id='covers' />
+					<img src={songs.cover} alt='' id='covers' />
 				</div>
 				<div style={{ float: "left", width: "650px" }}>
-					<img src={album.img} id='author' />
+					<img src={songs.img} id='author' />
 				</div>
 				<button id='btn' onClick={show}>
 					Edit
@@ -46,33 +53,31 @@ function Main() {
 					}}>
 					Home
 				</button>
-				<div id='names'>{album.artist}</div>
+				<div id='names'>{songs.artist}</div>
 				<div style={{ clear: "both" }}></div>
 				<h1 style={{ textAlign: "center", fontWeight: "30px" }}>List</h1>
 				<div>
-					{songs.map((e, i) => (
-						<div>
-							<div style={{ float: "left", marginLeft: "100px" }}>
-								<img src={e.is1} alt='' width='70px' />
-								<div className='sss'>{e.song1}</div>
-							</div>
-							<div style={{ float: "left", marginLeft: "100px" }}>
-								{" "}
-								<img src={e.is2} alt='' width='70px' />{" "}
-								<div className='sss'>{e.song2}</div>
-							</div>
-							<div style={{ float: "left", marginLeft: "100px" }}>
-								{" "}
-								<img src={e.is3} alt='' width='70px' />{" "}
-								<div className='sss'>{e.song3}</div>
-							</div>
-							<div style={{ float: "left", marginLeft: "100px" }}>
-								{" "}
-								<img src={e.is4} alt='' width='70px' />{" "}
-								<div className='sss'>{e.song4}</div>
-							</div>
+					<div>
+						<div style={{ float: "left", marginLeft: "100px" }}>
+							<img src={data.is1} alt='' width='70px' />
+							<div className='sss'>{data.song1}</div>
 						</div>
-					))}
+						<div style={{ float: "left", marginLeft: "100px" }}>
+							{" "}
+							<img src={data.is2} alt='' width='70px' />{" "}
+							<div className='sss'>{data.song2}</div>
+						</div>
+						<div style={{ float: "left", marginLeft: "100px" }}>
+							{" "}
+							<img src={data.is3} alt='' width='70px' />{" "}
+							<div className='sss'>{data.song3}</div>
+						</div>
+						<div style={{ float: "left", marginLeft: "100px" }}>
+							{" "}
+							<img src={data.is4} alt='' width='70px' />{" "}
+							<div className='sss'>{data.song4}</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
