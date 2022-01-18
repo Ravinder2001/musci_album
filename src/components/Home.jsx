@@ -1,71 +1,52 @@
 /** @format */
 import "./home.css";
 import { useEffect, useState } from "react";
+import Pagination from "@mui/material/Pagination";
+
 function Home() {
 	const [data, setData] = useState([]);
-	const [temp, setTemp] = useState(data);
+
 	const [page, setPage] = useState(1);
 	const [text, setText] = useState("");
+	const [sorts, setSort] = useState(1);
+	const [opt, setOpt] = useState("");
 	useEffect(() => {
 		get();
-	}, [page]);
+	}, []);
 
 	const get = async () => {
-		let res = await fetch(`http://localhost:3004/album`);
+		let res = await fetch(`http://localhost:4000/home?name=&sort=1&page=1`);
 		const data = await res.json();
-
-		await setData(data);
-		await setTemp(data);
+		console.log("data", data.album);
+		console.log(data);
+		await setData(data.album);
+		await setPage(data.pages);
 	};
 
-	function sortLow() {
-		console.log("click");
-		var arr = data
-			.filter(function (a, b) {
-				return a;
-			})
-			.sort(function (a, b) {
-				return a.year < b.year ? -1 : 1;
-			});
-
-		setTemp(arr);
-	}
-	function sortHigh() {
-		var arr = data
-			.filter(function (a, b) {
-				return a;
-			})
-			.sort(function (a, b) {
-				return a.year > b.year ? -1 : 1;
-			});
-
-		setTemp(arr);
-	}
-	function select() {
-		console.log(data);
+	async function sort(e) {
 		var select = document.getElementById("language");
 		var option = select.options[select.selectedIndex].text;
-		if (option == "All") {
-			setTemp(data);
-		} else {
-			const arr = data.filter((e) => {
-				return e.genre == option;
-			});
-			console.log(arr);
-			setTemp(arr);
-		}
+		setOpt(option);
+		let res = await fetch(
+			`http://localhost:4000/home?name=${option}&sort=${e}`,
+		);
+		const data = await res.json();
+		await setData(data.album);
+		await setPage(data.pages);
+		// setTemp(arr);
 	}
+
 	function handle(e) {
 		setText(e.target.value);
-		serch();
+		serch(e.target.value);
 	}
 	console.log(text);
-	async function serch() {
-		let res = await fetch(`http://localhost:3004/album?title_like=${text}`);
+	async function serch(e) {
+		let res = await fetch(`http://localhost:4000/home?name=&title=${e}&sort=1`);
 		const data = await res.json();
 		console.log(data);
-
-		setTemp(data);
+		setPage(data.pages);
+		setData(data.album);
 	}
 	return (
 		<div>
@@ -80,14 +61,14 @@ function Home() {
 			<button
 				className='so'
 				onClick={() => {
-					sortLow();
+					sort(1);
 				}}>
 				Low to High
 			</button>
 			<button
 				className='so'
 				onClick={() => {
-					sortHigh();
+					sort(-1);
 				}}>
 				High to Low
 			</button>
@@ -95,7 +76,7 @@ function Home() {
 				name=''
 				id='language'
 				onChange={() => {
-					select();
+					sort(1);
 				}}>
 				<option value=''>All</option>
 				<option value=''>Soul music</option>
@@ -106,12 +87,13 @@ function Home() {
 			</select>
 
 			<div id='container'>
-				{temp.map((e) => (
+				{data.map((e) => (
 					<div
+						key={e._id}
 						className='box'
 						onClick={() => {
 							localStorage.setItem("album", JSON.stringify(e));
-							window.location.href = "/main";
+							window.location.href = `/main`;
 						}}>
 						<img src={e.cover} alt='' className='img' />
 						<div style={{ float: "left" }}>
@@ -126,7 +108,20 @@ function Home() {
 				))}
 			</div>
 			<div style={{ clear: "both" }}></div>
-			<button
+			<Pagination
+				id='pagee'
+				count={page}
+				onClick={async function sort(e) {
+					let res = await fetch(
+						`http://localhost:4000/home?name=${opt}&sort=1&page=${e.target.innerText}`,
+					);
+					const data = await res.json();
+					await setData(data.album);
+					// setTemp(arr);
+				}}
+			/>
+
+			{/* <button
 				id='btn1'
 				onClick={() => {
 					if (page != 1) {
@@ -143,7 +138,7 @@ function Home() {
 					}
 				}}>
 				Next
-			</button>
+			</button> */}
 			<div style={{ height: "100px" }}></div>
 		</div>
 	);

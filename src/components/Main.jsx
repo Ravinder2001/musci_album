@@ -5,24 +5,28 @@ function Main() {
 	const [data, setData] = useState([]);
 	const [songs, setSong] = useState([]);
 	var album = JSON.parse(localStorage.getItem("album"));
-
+	console.log(album.artist);
 	useEffect(() => {
-		get();
+		// get();
 		alb();
 	}, []);
-	const get = async () => {
-		let res = await fetch(`http://localhost:3004/songs/${album.id}`);
-		const data = await res.json();
+	// const get = async () => {
+	// 	let res = await fetch(
+	// 		`http://localhost:4000/home?name=&title=${album.title}&sort=1`,
+	// 	);
+	// 	const data = await res.json();
+	// 	console.log(data.album);
 
-		await setData(data);
-	};
+	// 	setSong(data.album);
+	// };
+	// console.log(songs);
 	const alb = async () => {
-		let res = await fetch(`http://localhost:3004/album/${album.id}`);
+		let res = await fetch(`http://localhost:4000/song?title=${album.artist}`);
 		const data = await res.json();
-
-		await setSong(data);
+		console.log(data[0]);
+		await setData(data[0]);
 	};
-	console.log(songs);
+
 	// function filt(el) {
 	// 	const arr = el.filter((e) => {
 	// 		return e.artist == album.artist;
@@ -30,6 +34,7 @@ function Main() {
 
 	// 	setSong(arr);
 	// }
+
 	function show() {
 		alert("You Have to login first");
 		window.location.href = "/edit";
@@ -38,10 +43,10 @@ function Main() {
 		<div>
 			<div id='con'>
 				<div style={{ float: "left" }}>
-					<img src={songs.cover} alt='' id='covers' />
+					<img src={album.cover} alt='' id='covers' />
 				</div>
 				<div style={{ float: "left", width: "650px" }}>
-					<img src={songs.img} id='author' />
+					<img src={album.img} id='author' />
 				</div>
 				<button id='btn' onClick={show}>
 					Edit
@@ -53,7 +58,7 @@ function Main() {
 					}}>
 					Home
 				</button>
-				<div id='names'>{songs.artist}</div>
+				<div id='names'>{album.artist}</div>
 				<div style={{ clear: "both" }}></div>
 				<h1 style={{ textAlign: "center", fontWeight: "30px" }}>List</h1>
 				<div>
