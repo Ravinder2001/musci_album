@@ -5,7 +5,7 @@ import { useEffect } from "react";
 function Profile() {
 	const [song, setSong] = useState([]);
 	var album = JSON.parse(localStorage.getItem("album"));
-	console.log(album.id);
+	
 	const [title, setTitle] = useState(album.title);
 	const [artist, setArtist] = useState(album.artist);
 	const [pass, setPass] = useState(album.password);
@@ -31,7 +31,7 @@ function Profile() {
 		setImg(e.target.value);
 	}
 	const handleChange = () => {
-		fetch("http://localhost:3004/album/1", {
+		fetch(`https://airports-trains-album.herokuapp.com/album/${album._id}`, {
 			method: "PATCH",
 			body: JSON.stringify({
 				title: title,
@@ -47,14 +47,16 @@ function Profile() {
 		get();
 	}, []);
 	const get = async () => {
-		let res = await fetch(`http://localhost:3004/songs/${album.id}`);
+		let res = await fetch(
+			`https://airports-trains-album.herokuapp.com/song?title=${album.artist}`,
+		);
 		const data = await res.json();
-
+		console.log(data);
 		await setSong(data);
-		await setSong1(data.song1);
-		await setSong2(data.song2);
-		await setSong3(data.song3);
-		await setSong4(data.song4);
+		await setSong1(data[0].song1);
+		await setSong2(data[0].song2);
+		await setSong3(data[0].song3);
+		await setSong4(data[0].song4);
 	};
 
 	function so1(e) {
@@ -70,7 +72,7 @@ function Profile() {
 		setSong4(e.target.value);
 	}
 	const handleChange2 = () => {
-		fetch(`http://localhost:3004/songs/${album.id}`, {
+		fetch(`https://airports-trains-album.herokuapp.com/song/${song[0]._id}`, {
 			method: "PATCH",
 			body: JSON.stringify({
 				song1: song1,

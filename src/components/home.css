@@ -17,7 +17,7 @@
     transform: scale(1.2)
 }
 .img{
-    width: 280px;
+    width: 90%;
     height: 200px;
     margin:15px;
     border-radius: 10px;
@@ -99,4 +99,9 @@
 #pagee{
     font-size: 25px;
     margin-left: 43%;
+}
+#add{
+    font-size: 30px;
+    margin-left: 130px;
+    cursor: pointer;
 }

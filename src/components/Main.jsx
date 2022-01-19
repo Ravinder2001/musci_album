@@ -21,7 +21,9 @@ function Main() {
 	// };
 	// console.log(songs);
 	const alb = async () => {
-		let res = await fetch(`http://localhost:4000/song?title=${album.artist}`);
+		let res = await fetch(
+			`https://airports-trains-album.herokuapp.com/song?title=${album.artist}`,
+		);
 		const data = await res.json();
 		console.log(data[0]);
 		await setData(data[0]);

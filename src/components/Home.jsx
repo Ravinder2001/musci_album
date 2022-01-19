@@ -15,7 +15,9 @@ function Home() {
 	}, []);
 
 	const get = async () => {
-		let res = await fetch(`http://localhost:4000/home?name=&sort=1&page=1`);
+		let res = await fetch(
+			`https://airports-trains-album.herokuapp.com/home?name=&sort=1&page=1`,
+		);
 		const data = await res.json();
 		console.log("data", data.album);
 		console.log(data);
@@ -28,7 +30,7 @@ function Home() {
 		var option = select.options[select.selectedIndex].text;
 		setOpt(option);
 		let res = await fetch(
-			`http://localhost:4000/home?name=${option}&sort=${e}`,
+			`https://airports-trains-album.herokuapp.com/home?name=${option}&sort=${e}`,
 		);
 		const data = await res.json();
 		await setData(data.album);
@@ -42,7 +44,9 @@ function Home() {
 	}
 	console.log(text);
 	async function serch(e) {
-		let res = await fetch(`http://localhost:4000/home?name=&title=${e}&sort=1`);
+		let res = await fetch(
+			`https://airports-trains-album.herokuapp.com/home?name=&title=${e}&sort=1`,
+		);
 		const data = await res.json();
 		console.log(data);
 		setPage(data.pages);
@@ -85,7 +89,13 @@ function Home() {
 				<option value=''>Disco</option>
 				<option value=''>Classical</option>
 			</select>
-
+			<button
+				id='add'
+				onClick={() => {
+					window.location.href = `/add`;
+				}}>
+				+
+			</button>
 			<div id='container'>
 				{data.map((e) => (
 					<div
@@ -113,7 +123,7 @@ function Home() {
 				count={page}
 				onClick={async function sort(e) {
 					let res = await fetch(
-						`http://localhost:4000/home?name=${opt}&sort=1&page=${e.target.innerText}`,
+						`https://airports-trains-album.herokuapp.com/home?name=${opt}&sort=1&page=${e.target.innerText}`,
 					);
 					const data = await res.json();
 					await setData(data.album);
